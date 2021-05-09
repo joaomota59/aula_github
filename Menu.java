@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 public class Menu {
 	private String title;
-	private String name;
-	private String cpf;
 	private List<String> options;
+	private String name; 
+	private String cpf;
 
 	public Menu(List<String> options) {
 		this.title = "Menu";
@@ -41,8 +41,7 @@ public class Menu {
 			if (op>=i){
 				System.out.println("Opcao errada!");
 				op=0;
-			}
-			else if(op==2){
+			}else if(op==2){
 				System.out.print("Informe o nome do cliente: ");
 				Scanner names  = new Scanner(System.in);
 				this.name = names.nextLine();
@@ -52,6 +51,7 @@ public class Menu {
 				Client client = new Client(name,cpf);
 				System.out.println("\n"+client.getName()+" e cpf:"+client.getCPF());
 			}
+
 
 		}
 		return op;
