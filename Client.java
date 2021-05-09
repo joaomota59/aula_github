@@ -1,19 +1,19 @@
 
 public class Client {
 	public String getName() {
-		return Name;
+		return this.Name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.Name = name;
 	}
 
 	public String getCPF() {
-		return CPF;
+		return this.CPF;
 	}
 
 	public void setCPF(String cPF) {
-		CPF = cPF;
+		this.CPF = cPF;
 	}
 
 	private String Name;

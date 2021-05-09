@@ -46,7 +46,7 @@ public class Menu {
 				System.out.print("Informe o nome do cliente: ");
 				Scanner names  = new Scanner(System.in);
 				this.name = names.nextLine();
-				System.out.print("\nInforme o cpf: ");
+				System.out.print("\nInforme o cpf do cliente: ");
 				Scanner cpfs  = new Scanner(System.in);
 				this.cpf = cpfs.nextLine();
 				Client client = new Client(name,cpf);
