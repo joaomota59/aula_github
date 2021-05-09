@@ -1,12 +1,13 @@
+
 public class Conta {
     private int numero; 
-    private Cliente dono;
+    private String cpf;
     private double saldo; 
     
-    public Conta(int numero, Cliente dono, double saldo){
+    public Conta(int numero, String cpf){
         this.numero = numero; 
-        this.dono = dono; 
-        this.saldo = saldo; 
+        this.cpf = cpf; 
+        this.saldo = 0.0; 
     }
 
     public double getSaldo(){

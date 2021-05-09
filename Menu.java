@@ -41,6 +41,26 @@ public class Menu {
 			if (op>=i){
 				System.out.println("Opcao errada!");
 				op=0;
+			}else if(op == 1) {
+				
+				System.out.print("\nInforme o numero da conta: ");
+				Scanner ler = new Scanner(System.in);
+				int numeroConta; 
+				
+				numeroConta = ler.nextInt();
+				
+				System.out.print("\nInforme o cpf do cliente: ");
+				Scanner cpfCliente = new Scanner(System.in);
+				this.cpf = cpfCliente.nextLine();
+				
+				Conta c1 = new Conta(numeroConta, this.cpf);
+				
+				System.out.println("\n"+c1.getSaldo());
+				
+				
+				
+				
+				
 			}else if(op==2){
 				System.out.print("Informe o nome do cliente: ");
 				Scanner names  = new Scanner(System.in);
@@ -49,6 +69,7 @@ public class Menu {
 				Scanner cpfs  = new Scanner(System.in);
 				this.cpf = cpfs.nextLine();
 				Client client = new Client(name,cpf);
+				
 				System.out.println("\n"+client.getName()+" e cpf:"+client.getCPF());
 			}
 
