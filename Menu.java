@@ -73,9 +73,9 @@ public class Menu {
 				Scanner cpfs  = new Scanner(System.in);
 				this.cpf = cpfs.nextLine();
 				Client client = new Client(name,cpf);
-				Clientes.add(client);//cada cliente cadastrado é adicionado ao vetor
+				Clientes.add(client);//cada cliente cadastrado Ã© adicionado ao vetor
 				
-				System.out.println("\nCliente "+client.getName()+"cadastrado\n com cpf:"+client.getCPF());
+				System.out.println("\nCliente "+client.getName()+" cadastrado\ncom cpf:"+client.getCPF());
 			}
 			
 			else if(op==3) {
@@ -101,8 +101,8 @@ public class Menu {
 					
 				}
 				
-			}
-			else if(op==5){
+      }
+      else if(op==4) {
 				
 				System.out.print("\nInforme o cpf do cliente: ");
 				Scanner cpfs  = new Scanner(System.in);
@@ -111,7 +111,28 @@ public class Menu {
 				Scanner ler = new Scanner(System.in);
 				int numeroConta; 
 				numeroConta = ler.nextInt();
-				System.out.println("\n Informe o valor do depósito: ");
+				System.out.print("\nDigite 1 - Para registrar uma chave codigo aleatorio ou 2 para registrar a chave CPF");
+				Scanner opcaoChave  = new Scanner(System.in);
+				for (Client client : Clientes) {//pecorre o array de clientes
+					if(client.getCPF().equals(this.cpf)) {
+						Conta conta = new Conta(numeroConta, this.cpf);
+						conta.cadastrarChavePix(opcaoChave.nextInt());
+						System.out.println("\nChave Cadastrada!");
+						break;
+					}
+				}
+			}
+      
+      else if(op==5){
+				
+				System.out.print("\nInforme o cpf do cliente: ");
+				Scanner cpfs  = new Scanner(System.in);
+				this.cpf = cpfs.nextLine();
+				System.out.print("\nInforme o numero da conta: ");
+				Scanner ler = new Scanner(System.in);
+				int numeroConta; 
+				numeroConta = ler.nextInt();
+				System.out.println("\n Informe o valor do depÃ³sito: ");
 				Scanner v = new Scanner(System.in);
 				double valor = v.nextDouble();
 				
@@ -119,14 +140,18 @@ public class Menu {
 					if(c.getCPF().equals(this.cpf)) {
 						Conta conta = new Conta(numeroConta, this.cpf);
 						conta.deposita(valor);
-						System.out.println("\nDepósito Realizado!");
+						System.out.println("\nDepÃ³sito Realizado!");
 						System.out.println("\nSaldo Atual: "+conta.getSaldo());
 					}
 					
 				}
 				
 				
-			}else {
+			}
+      
+      
+			else {
+     
 				break;
 			}
 			
