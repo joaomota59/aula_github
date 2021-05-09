@@ -75,7 +75,7 @@ public class Menu {
 				Client client = new Client(name,cpf);
 				Clientes.add(client);//cada cliente cadastrado é adicionado ao vetor
 				
-				System.out.println("\nCliente "+client.getName()+"cadastrado\n com cpf:"+client.getCPF());
+				System.out.println("\nCliente "+client.getName()+" cadastrado\ncom cpf:"+client.getCPF());
 			}
 			
 			else if(op==3) {
@@ -96,6 +96,29 @@ public class Menu {
 						conta.saca(saquex);
 						System.out.println("\nSaldo Realizado!");
 						System.out.println("\nSaldo Atual"+conta.getSaldo());
+						break;
+					}
+					
+				}
+				
+			}
+			
+	else if(op==4) {
+				
+				System.out.print("\nInforme o cpf do cliente: ");
+				Scanner cpfs  = new Scanner(System.in);
+				this.cpf = cpfs.nextLine();
+				System.out.print("\nInforme o numero da conta: ");
+				Scanner ler = new Scanner(System.in);
+				int numeroConta; 
+				numeroConta = ler.nextInt();
+				System.out.print("\nDigite 1 - Para registrar uma chave codigo aleatorio ou 2 para registrar a chave CPF");
+				Scanner opcaoChave  = new Scanner(System.in);
+				for (Client client : Clientes) {//pecorre o array de clientes
+					if(client.getCPF().equals(this.cpf)) {
+						Conta conta = new Conta(numeroConta, this.cpf);
+						conta.cadastrarChavePix(opcaoChave.nextInt());
+						System.out.println("\nChave Cadastrada!");
 						break;
 					}
 					

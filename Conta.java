@@ -1,8 +1,10 @@
-
 public class Conta {
     private int numero; 
     private String cpf;
     private double saldo; 
+    
+    private String chave_CPF;
+    private String chave_Codigo;
     
     public Conta(int numero, String cpf){
         this.numero = numero; 
@@ -26,5 +28,24 @@ public class Conta {
     void transfere(Conta destino, double valor){
         this.saldo = this.saldo - valor; 
         destino.saldo = destino.saldo + valor; 
+    }
+    
+   public void cadastrarChavePix(int tipoDeChave) {
+    	
+    	switch(tipoDeChave) {
+    		case 1:
+    			if(this.chave_CPF == "")
+    				this.chave_CPF = this.cpf;
+    			break;
+    			
+    		case 2:
+    			if(this.chave_Codigo ==""){
+    				//Código 'Randomico'
+    				this.chave_Codigo ="ACFEDFAGR" ;
+    			}
+    			
+    		default: 
+    			break;
+    	}
     }
 }
