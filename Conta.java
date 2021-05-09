@@ -1,7 +1,13 @@
 public class Conta {
-    protected int numero; 
-    protected Cliente dono;
-    protected double saldo; 
+    private int numero; 
+    private Cliente dono;
+    private double saldo; 
+    
+    public Conta(int numero, Cliente dono, double saldo){
+        this.numero = numero; 
+        this.dono = dono; 
+        this.saldo = saldo; 
+    }
 
     public double getSaldo(){
         return this.saldo;
