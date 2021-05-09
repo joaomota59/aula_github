@@ -1,7 +1,10 @@
 public class Conta {
     private int numero; 
     private String cpf;
-    private double saldo; 
+    public String getCpf() {
+		return cpf;
+	}
+	private double saldo; 
     
     private String chave_CPF;
     private String chave_Codigo;

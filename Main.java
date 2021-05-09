@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Menu mainMenu =  new Menu("Menu Principal", Arrays.asList("Abrir Conta",
-				"Cadastrar Cliente", "Realizar Saque","Cadastrar Chave Pix","Realizar deposito","Pagar Boleto","Sair"));
+				"Cadastrar Cliente", "Realizar Saque","Cadastrar Chave Pix","Realizar deposito","Pagar Boleto","Ver Saldo","Sair"));
 		System.out.println(mainMenu.getSelection() + "foi selecionada");
 		System.out.println("Fim");
 	}

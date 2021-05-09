@@ -12,6 +12,7 @@ public class Menu {
 	private String name; 
 	private String cpf;
 	private ArrayList<Client> Clientes = new ArrayList();
+	private ArrayList<Conta> Contas = new ArrayList();
 	public Menu(List<String> options) {
 		this.title = "Menu";
 		this.options = options;
@@ -58,6 +59,7 @@ public class Menu {
 				this.cpf = cpfCliente.nextLine();
 				
 				Conta c1 = new Conta(numeroConta, this.cpf);
+				Contas.add(c1);
 				
 				System.out.println("\n"+c1.getSaldo());
 				
@@ -90,12 +92,11 @@ public class Menu {
 				System.out.print("\nInforme o valor do Saque: ");
 				Scanner saque  = new Scanner(System.in);
 				double saquex = saque.nextDouble();
-				for (Client client : Clientes) {//pecorre o array de clientes
-					if(client.getCPF().equals(this.cpf)) {
-						Conta conta = new Conta(numeroConta, this.cpf);
-						conta.saca(saquex);
+				for (Conta c : Contas) {//pecorre o array de clientes
+					if(c.getCpf().equals(this.cpf)) {
+						c.saca(saquex);
 						System.out.println("\nSaldo Realizado!");
-						System.out.println("\nSaldo Atual: "+conta.getSaldo());
+						System.out.println("\nSaldo Atual: "+c.getSaldo());
 						break;
 					}
 					
@@ -113,10 +114,9 @@ public class Menu {
 				numeroConta = ler.nextInt();
 				System.out.print("\nDigite 1 - Para registrar uma chave codigo aleatorio ou 2 para registrar a chave CPF");
 				Scanner opcaoChave  = new Scanner(System.in);
-				for (Client client : Clientes) {//pecorre o array de clientes
-					if(client.getCPF().equals(this.cpf)) {
-						Conta conta = new Conta(numeroConta, this.cpf);
-						conta.cadastrarChavePix(opcaoChave.nextInt());
+				for (Conta c : Contas) {//pecorre o array de clientes
+					if(c.getCpf().equals(this.cpf)) {
+						c.cadastrarChavePix(opcaoChave.nextInt());
 						System.out.println("\nChave Cadastrada!");
 						break;
 					}
@@ -135,13 +135,13 @@ public class Menu {
 				System.out.println("\n Informe o valor do dep√≥sito: ");
 				Scanner v = new Scanner(System.in);
 				double valor = v.nextDouble();
+				System.out.println(valor);
 				
-				for(Client c : Clientes) {
-					if(c.getCPF().equals(this.cpf)) {
-						Conta conta = new Conta(numeroConta, this.cpf);
-						conta.deposita(valor);
+				for(Conta c : Contas) {
+					if(c.getCpf().equals(this.cpf)) {
+						c.deposita(valor);
 						System.out.println("\nDeposito Realizado!");
-						System.out.println("\nSaldo Atual: "+conta.getSaldo());
+						System.out.println("\nSaldo Atual: "+c.getSaldo());
 					}
 					
 				}
@@ -163,20 +163,31 @@ public class Menu {
 			System.out.println("\n Informe o codigo do boleto: ");
 			Scanner v1 = new Scanner(System.in);
 			String boletoCod = v1.nextLine();
-			for(Client c : Clientes) {
-				if(c.getCPF().equals(this.cpf)) {
-					Conta conta = new Conta(numeroConta, this.cpf);
-					conta.pagarBoleto(boletoCod,valor);
+			for(Conta c : Contas) {
+				if(c.getCpf().equals(this.cpf)) {
+					c.pagarBoleto(boletoCod,valor);
 					System.out.println("\nBoleto Pago Com Sucesso!");
-					System.out.println("\nSaldo Atual: "+conta.getSaldo());
+					System.out.println("\nSaldo Atual: "+c.getSaldo());
 				}
 				
 			}
 			
 			
+		}else if(op==7) {
+			System.out.print("\nInforme o cpf do cliente: ");
+			Scanner cpfs  = new Scanner(System.in);
+			this.cpf = cpfs.nextLine();
+			System.out.print("\nInforme o numero da conta: ");
+			Scanner ler = new Scanner(System.in);
+			int numeroConta; 
+			numeroConta = ler.nextInt();
+			for(Conta c : Contas) {
+				if(c.getCpf().equals(this.cpf)) {
+					System.out.println("\nSeu saldo È: "+ c.getSaldo());
+				}
+								
 		}
-      
-			else {
+		}else {
      
 				break;
 			}
