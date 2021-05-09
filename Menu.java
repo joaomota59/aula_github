@@ -102,7 +102,7 @@ public class Menu {
 				}
 				
 			}
-			else if(op==4){
+			else if(op==5){
 				
 				System.out.print("\nInforme o cpf do cliente: ");
 				Scanner cpfs  = new Scanner(System.in);
