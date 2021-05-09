@@ -10,6 +10,8 @@ public class Menu {
 	private String name; 
 	private String cpf;
 
+	private List<Conta> contas; 
+
 	public Menu(List<String> options) {
 		this.title = "Menu";
 		this.options = options;
@@ -54,8 +56,10 @@ public class Menu {
 				this.cpf = cpfCliente.nextLine();
 				
 				Conta c1 = new Conta(numeroConta, this.cpf);
+
+				contas.add(c1);
 				
-				System.out.println("\n"+c1.getSaldo());
+				
 				
 				
 				
