@@ -1,6 +1,6 @@
 public class Conta {
     protected int numero; 
-    protected String dono;
+    protected Cliente dono;
     protected double saldo; 
 
     public double getSaldo(){
