@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Menu {
 	private String title;
-	private String name;
-	private String cpf;
 	private List<String> options;
 
 	public Menu(List<String> options) {
@@ -41,16 +39,6 @@ public class Menu {
 			if (op>=i){
 				System.out.println("Opcao errada!");
 				op=0;
-			}
-			else if(op==2){
-				System.out.print("Informe o nome do cliente: ");
-				Scanner names  = new Scanner(System.in);
-				this.name = names.nextLine();
-				System.out.print("\nInforme o cpf: ");
-				Scanner cpfs  = new Scanner(System.in);
-				this.cpf = cpfs.nextLine();
-				Client client = new Client(name,cpf);
-				System.out.println("\n"+client.getName()+" e cpf:"+client.getCPF());
 			}
 
 		}
