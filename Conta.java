@@ -48,4 +48,18 @@ public class Conta {
     			break;
     	}
     }
+   public void pagarBoleto(String codigoBoleto,double valorBoleto) {
+	   
+	   /*
+	    * Verifica Codigo do boleto
+	    
+	    */
+	   
+	   if((this.saldo - valorBoleto)>0.0) {
+		   this.saldo -=valorBoleto;
+	   }
+	   else {
+		   System.out.print("Saldo Insuficiente para pagar o boleto\n");
+	   }
+   }
 }
