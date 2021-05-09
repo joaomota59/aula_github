@@ -95,14 +95,38 @@ public class Menu {
 						Conta conta = new Conta(numeroConta, this.cpf);
 						conta.saca(saquex);
 						System.out.println("\nSaldo Realizado!");
-						System.out.println("\nSaldo Atual"+conta.getSaldo());
+						System.out.println("\nSaldo Atual: "+conta.getSaldo());
 						break;
 					}
 					
 				}
 				
 			}
-			else {
+			else if(op==4){
+				
+				System.out.print("\nInforme o cpf do cliente: ");
+				Scanner cpfs  = new Scanner(System.in);
+				this.cpf = cpfs.nextLine();
+				System.out.print("\nInforme o numero da conta: ");
+				Scanner ler = new Scanner(System.in);
+				int numeroConta; 
+				numeroConta = ler.nextInt();
+				System.out.println("\n Informe o valor do depósito: ");
+				Scanner v = new Scanner(System.in);
+				double valor = v.nextDouble();
+				
+				for(Client c : Clientes) {
+					if(c.getCPF().equals(this.cpf)) {
+						Conta conta = new Conta(numeroConta, this.cpf);
+						conta.deposita(valor);
+						System.out.println("\nDepósito Realizado!");
+						System.out.println("\nSaldo Atual: "+conta.getSaldo());
+					}
+					
+				}
+				
+				
+			}else {
 				break;
 			}
 			
