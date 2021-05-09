@@ -1,6 +1,8 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +11,7 @@ public class Menu {
 	private List<String> options;
 	private String name; 
 	private String cpf;
-
+	private ArrayList<Client> Clientes = new ArrayList();
 	public Menu(List<String> options) {
 		this.title = "Menu";
 		this.options = options;
@@ -21,8 +23,10 @@ public class Menu {
 	}
 
 	public int getSelection() {
+		
 		int op = 0;
-		while (op==0){
+		while (true){
+			op = 0;
 			System.out.println(title+"\n");
 			int i=1;
 			for (String option : options) {
@@ -69,9 +73,40 @@ public class Menu {
 				Scanner cpfs  = new Scanner(System.in);
 				this.cpf = cpfs.nextLine();
 				Client client = new Client(name,cpf);
+				Clientes.add(client);//cada cliente cadastrado é adicionado ao vetor
 				
-				System.out.println("\n"+client.getName()+" e cpf:"+client.getCPF());
+				System.out.println("\nCliente "+client.getName()+"cadastrado\n com cpf:"+client.getCPF());
 			}
+			
+			else if(op==3) {
+				
+				System.out.print("\nInforme o cpf do cliente: ");
+				Scanner cpfs  = new Scanner(System.in);
+				this.cpf = cpfs.nextLine();
+				System.out.print("\nInforme o numero da conta: ");
+				Scanner ler = new Scanner(System.in);
+				int numeroConta; 
+				numeroConta = ler.nextInt();
+				System.out.print("\nInforme o valor do Saque: ");
+				Scanner saque  = new Scanner(System.in);
+				double saquex = saque.nextDouble();
+				for (Client client : Clientes) {//pecorre o array de clientes
+					if(client.getCPF().equals(this.cpf)) {
+						Conta conta = new Conta(numeroConta, this.cpf);
+						conta.saca(saquex);
+						System.out.println("\nSaldo Realizado!");
+						System.out.println("\nSaldo Atual"+conta.getSaldo());
+						break;
+					}
+					
+				}
+				
+			}
+			else {
+				break;
+			}
+			
+			
 
 
 		}
