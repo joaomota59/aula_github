@@ -140,7 +140,7 @@ public class Menu {
 					if(c.getCPF().equals(this.cpf)) {
 						Conta conta = new Conta(numeroConta, this.cpf);
 						conta.deposita(valor);
-						System.out.println("\nDepósito Realizado!");
+						System.out.println("\nDeposito Realizado!");
 						System.out.println("\nSaldo Atual: "+conta.getSaldo());
 					}
 					
@@ -148,7 +148,33 @@ public class Menu {
 				
 				
 			}
-      
+      else if(op==6){
+			
+			System.out.print("\nInforme o cpf do cliente: ");
+			Scanner cpfs  = new Scanner(System.in);
+			this.cpf = cpfs.nextLine();
+			System.out.print("\nInforme o numero da conta: ");
+			Scanner ler = new Scanner(System.in);
+			int numeroConta; 
+			numeroConta = ler.nextInt();
+			System.out.println("\n Informe o valor do boleto: ");
+			Scanner v = new Scanner(System.in);
+			double valor = v.nextDouble();
+			System.out.println("\n Informe o codigo do boleto: ");
+			Scanner v1 = new Scanner(System.in);
+			String boletoCod = v1.nextLine();
+			for(Client c : Clientes) {
+				if(c.getCPF().equals(this.cpf)) {
+					Conta conta = new Conta(numeroConta, this.cpf);
+					conta.pagarBoleto(boletoCod,valor);
+					System.out.println("\nBoleto Pago Com Sucesso!");
+					System.out.println("\nSaldo Atual: "+conta.getSaldo());
+				}
+				
+			}
+			
+			
+		}
       
 			else {
      
