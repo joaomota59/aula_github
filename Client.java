@@ -1,11 +1,11 @@
 
 public class Client {
 	public String getName() {
-		return this.Name;
+		return this.name;
 	}
 
 	public void setName(String name) {
-		this.Name = name;
+		this.name = name;
 	}
 
 	public String getCPF() {
@@ -16,11 +16,11 @@ public class Client {
 		this.CPF = cPF;
 	}
 
-	private String Name;
+	private String name;
 	private String CPF;
 	
 	public Client(String Name, String CPF) {
-		this.Name = Name;
+		this.name = Name;
 		this.CPF = CPF;
 		
 	}
